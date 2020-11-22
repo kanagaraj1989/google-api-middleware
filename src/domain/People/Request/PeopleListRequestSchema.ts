@@ -1,5 +1,4 @@
 import {checkSchema} from 'express-validator/check'
-import {validateAuthBody} from "../../OAuth/Request/AuthRequestSchema";
 
 const validateQuery = checkSchema({
   page: {
@@ -14,5 +13,4 @@ const validateQuery = checkSchema({
 
 export const peopleListSchema = [
   ...validateQuery,
-  ...validateAuthBody,
 ]

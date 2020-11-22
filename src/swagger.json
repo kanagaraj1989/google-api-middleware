@@ -56,12 +56,12 @@
       }
     },
     "/social-app/google/people/list": {
-      "post": {
+      "get": {
         "tags": [
           "Get People List"
         ],
-        "summary": "Get list of contact assosiated with login account",
-        "description": "Get list of contact assosiated with login account",
+        "summary": "Get list of contact associated with google login account",
+        "description": "Get list of contact associated with google login account",
         "operationId": "GetPeopleList",
         "consumes": [
           "application/json"
@@ -70,15 +70,6 @@
           "application/json"
         ],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "description": "accessToken get from google OAuth2 response",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/GetPeopleListRequest"
-            }
-          },
           {
             "name": "page",
             "in": "query",
@@ -113,23 +104,6 @@
   },
   "definitions": {
     "AuthTokenRequest": {
-      "type": "object",
-      "properties": {
-        "accessToken": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "email": {
-          "type": "string"
-        },
-        "token": {
-          "type": "string"
-        }
-      }
-    },
-    "GetPeopleListRequest": {
       "type": "object",
       "properties": {
         "accessToken": {

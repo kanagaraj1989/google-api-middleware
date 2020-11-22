@@ -8,7 +8,7 @@ import Logger from "../util/logger/Logger";
 export const contactsRouter = express.Router()
 
 
-contactsRouter.post('/list',
+contactsRouter.get('/list',
   peopleListSchema,
   async (req: any, res: any) => {
     Logger.info('Auth value=', req.auth);
@@ -28,9 +28,9 @@ contactsRouter.post('/list',
 
 const createCredential = (req: any) => {
   const credential= {
-    access_token: req.body.accessToken,
+    access_token: req.body.auth.accessToken,
     token_type: 'Bearer',
-    id_token: req.body.token,
+    id_token: req.body.auth.token,
     scope: 'https://www.googleapis.com/auth/contacts.readonly'
   } as Credentials;
 

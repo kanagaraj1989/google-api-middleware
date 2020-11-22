@@ -1,10 +1,8 @@
 import * as express from 'express'
 import {contactsRouter} from './Contacts'
-import {peopleListSchema} from "../domain/People/Request/PeopleListRequestSchema";
-import Logger from "winston";
-import {validationResult} from "express-validator/check";
-import {AuthTokenRequestSchema} from "../domain/OAuth/Request/AuthRequestSchema";
-import {createAuthToken, verifyAuthToken} from "../domain/OAuth/service/AuthService";
+import {validationResult} from 'express-validator/check';
+import {AuthTokenRequestSchema} from '../domain/OAuth/Request/AuthRequestSchema';
+import {createAuthToken, verifyAuthToken} from '../domain/OAuth/service/AuthService';
 
 export const rootRouter = express.Router()
 rootRouter.post('/google/authToken',
@@ -18,6 +16,8 @@ rootRouter.post('/google/authToken',
     const jwtPayload = {
       name: req.body.name,
       email: req.body.email,
+      token: req.body.token,
+      accessToken: req.body.accessToken,
     };
     const token = createAuthToken(jwtPayload);
 
